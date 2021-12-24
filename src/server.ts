@@ -248,10 +248,10 @@ export class ServerEventDispatcher {
      console.log(process.env.NODE_ENV)
 })()
 
-
+console.log(__dirname)
 const server1 = new ApolloServer({
     typeDefs: fs.readFileSync(
-      path.join(__dirname, '../../../schema.graphql'),
+      path.join(__dirname, '../schema.graphql'),
       'utf8'
     ),
     

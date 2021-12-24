@@ -1,17 +1,22 @@
-FROM nikolaik/python-nodejs:python3.9-nodejs16-alpine as build
+FROM nikolaik/python-nodejs:python3.9-nodejs16-alpine as rf-api-dev
 # Create app directory
-WORKDIR /usr/
+WORKDIR /usr/app
 RUN apk update \
   && apk add --update alpine-sdk \
   && apk add sqlite \
   && apk add socat \
-  && apk add bash
+  && apk add bash \
+  && npm i -g typescript \
+  && mkdir run
 # Install app dependencies
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
 # where available (npm@5+)
-COPY prisma/ src/ run/ tsconfig.json package*.json ./
-VOLUME /usr/src
-RUN npm install
+COPY package*.json ./
+RUN npm i
+COPY ./prisma/ ./prisma/ 
+RUN npx prisma generate
+COPY ormconfig.json jest.config.js webpack.config.js babel.config.js .env schema.graphql tsconfig.json ./
+VOLUME /usr/app/src
 # RUN npm run build
 
 # If you are building your code for production
