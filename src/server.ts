@@ -226,14 +226,14 @@ export class ServerEventDispatcher {
         process.env.NODE_ENV = "prod" 
         console.log("Is connected", res.isConnected)
         try {
-            await UserOperations.createUser("God", "Jesus")
+            await UserOperations.createUser("user", "pass")
 
             await ProjectOperations.createProject(new FlowProject({
                 Id: "noRoom",
                 Description: "this is not a room",
                 DateModified: Date.now(),
                 ProjectName: "noRoom"
-            }), "God")
+            }), "user")
         } catch(err) {
             console.log(err)
         }
@@ -267,10 +267,9 @@ const server = http.createServer();
 new ServerEventDispatcher(server);
 
 try {
-    let port = process.env.PORT || 8999
-server.listen({"port": port, "host": "localhost"}, () => {
-    console.log("SYSTEM READY on port " + port);
-
+    let port = parseInt(process.env.PORT) || 8999
+  server.listen(port, "localhost", 511, () => {
+      console.log("SYSTEM READY on port " + port);
 })
 } catch (err) {
   console.log(err)

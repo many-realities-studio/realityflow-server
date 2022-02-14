@@ -8,15 +8,19 @@ RUN apk update \
   && apk add bash \
   && npm i -g typescript \
   && mkdir run
+
+
 # Install app dependencies
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
 # where available (npm@5+)
+
 COPY package*.json ./
 RUN npm i
 COPY ./prisma/ ./prisma/ 
 RUN npx prisma generate
 COPY ormconfig.json jest.config.js webpack.config.js babel.config.js .env schema.graphql tsconfig.json ./
 VOLUME /usr/app/src
+
 # RUN npm run build
 
 # If you are building your code for production

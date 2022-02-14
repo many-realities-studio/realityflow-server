@@ -6,8 +6,8 @@
     "Message": null,
     "MessageType": "LoginUser",
     "FlowUser": {
-      "Password": "Jesus",
-      "Username": "God"
+      "Password": "password",
+      "Username": "user"
     }
   },
 
