@@ -231,7 +231,7 @@ export class ServerEventDispatcher {
             await ProjectOperations.createProject(new FlowProject({
                 Id: "noRoom",
                 Description: "this is not a room",
-                DateModified: Date.now(),
+                DateModified: new Date(Date.now()),
                 ProjectName: "noRoom"
             }), "user")
         } catch(err) {
