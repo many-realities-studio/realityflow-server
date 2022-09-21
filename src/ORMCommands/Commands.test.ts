@@ -87,7 +87,7 @@ describe("User", () => {
         let returnedUser = await conn.manager.save(newUser)
 
         // act
-      UserOperations.deleteUser(newUser.Username)
+        UserOperations.deleteUser(newUser.Username)
       
         let check = await getConnection(process.env.NODE_ENV).createQueryBuilder().
             select("user").
