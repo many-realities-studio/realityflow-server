@@ -48,12 +48,13 @@ export class UserOperations {
     public static async deleteUser(Username: string){
         console.log("attempting to delete user " + Username)
 
-        await getConnection(process.env.NODE_ENV)
+        let query = await getConnection(process.env.NODE_ENV)
             .createQueryBuilder()
             .delete()
             .from(User)
-            .where("Username = :username", { username: Username })
-            .execute();
+          .where("Username = :username", { username: Username })
+        console.log(query)
+          query.execute();
     }
 
     /**
