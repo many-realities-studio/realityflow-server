@@ -53,7 +53,6 @@ export class UserOperations {
             .delete()
             .from(User)
           .where("Username = :username", { username: Username })
-        query.printSql()
           query.execute();
     }
 
