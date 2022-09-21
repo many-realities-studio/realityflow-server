@@ -16,7 +16,7 @@ beforeAll( async () => {
     await createConnection({
         "name": "test",
         "type": "sqlite",
-        "database": "../database/test.db", 
+        "database": ":memory:", 
         "synchronize": true,
         "logging": true,
         "dropSchema": true,
