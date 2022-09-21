@@ -53,7 +53,7 @@ export class UserOperations {
             .createQueryBuilder()
             .delete()
             .from(User)
-          .where('"Username" = "UserCanBeDeleted"', { username: Username })
+          .where('"Username" = :Username', { Username })
       console.log(query.getSql())
       query.execute();
     }
