@@ -52,7 +52,7 @@ export class UserOperations {
             .createQueryBuilder()
             .delete()
             .from(User)
-          .where("Username = :username", { username: Username })
+          .where('"Username" = :username', { username: Username })
           query.execute();
     }
 
