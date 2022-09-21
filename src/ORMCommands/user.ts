@@ -53,7 +53,7 @@ export class UserOperations {
             .createQueryBuilder()
             .delete()
             .from(User)
-          .where('"Username" = :Username', { Username })
+          .where('"Username" = :un', { un:Username })
       console.log(query.getSql())
       query.execute();
     }
