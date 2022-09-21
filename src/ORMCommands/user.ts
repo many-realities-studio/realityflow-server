@@ -47,14 +47,15 @@ export class UserOperations {
      */
     public static async deleteUser(Username: string){
       console.log("attempting to delete user " + Username)
-      let user = await User.findOne({Username:Username})
-      await User.remove(user)
-        // let query = await getConnection(process.env.NODE_ENV)
-        //     .createQueryBuilder()
-        //     .delete()
-        //     .from(User)
-        //   .where('"Username" = :username', { username: Username })
-        //   query.execute();
+      // let user = await User.findOne({Username:Username})
+      // await User.remove(user)
+        let query = await getConnection(process.env.NODE_ENV)
+            .createQueryBuilder()
+            .delete()
+            .from(User)
+          .where('"Username" = :username', { username: Username })
+      console.log(query.getSql())
+      query.execute();
     }
 
     /**
