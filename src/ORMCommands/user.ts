@@ -46,14 +46,15 @@ export class UserOperations {
      * @param Username 
      */
     public static async deleteUser(Username: string){
-        console.log("attempting to delete user " + Username)
-
-        let query = await getConnection(process.env.NODE_ENV)
-            .createQueryBuilder()
-            .delete()
-            .from(User)
-          .where('"Username" = :username', { username: Username })
-          query.execute();
+      console.log("attempting to delete user " + Username)
+      let user = await User.findOne({Username:Username})
+      await User.remove(user)
+        // let query = await getConnection(process.env.NODE_ENV)
+        //     .createQueryBuilder()
+        //     .delete()
+        //     .from(User)
+        //   .where('"Username" = :username', { username: Username })
+        //   query.execute();
     }
 
     /**
