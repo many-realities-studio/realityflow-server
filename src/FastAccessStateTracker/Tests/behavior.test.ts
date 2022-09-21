@@ -18,7 +18,7 @@ beforeAll( async () => {
         "type": "sqlite",
         "database": ":memory:", 
         "synchronize": true,
-        "logging": true,
+        "logging": false,
         "dropSchema": true,
         "entities": [
            DBObject,
@@ -43,7 +43,7 @@ describe("entity", () => {
 
     it("can be created", async () => {
 
-        let conn = getConnection(process.env.NODE_ENV);
+      let conn = getConnection(process.env.NODE_ENV);
     let createdProject = new Project();
     createdProject.Id = "createObjectProjectId";
     createdProject.ProjectName = "createdProjectName"
@@ -134,7 +134,7 @@ describe("entity", () => {
             .where("ChainOwner = :owner", {owner: "Trigger"})
             .orderBy("Behaviour.Index", "ASC")
             .execute()
-
+        console.log(find)
         expect(find).toBeTruthy()
         console.log(find)
     })
