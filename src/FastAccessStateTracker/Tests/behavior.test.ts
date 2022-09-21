@@ -132,7 +132,7 @@ describe("entity", () => {
             .select("Behaviour")
             .from(Behaviour, "Behaviour")
             .where("ChainOwner = :owner", {owner: "Trigger"})
-            .orderBy("Behaviour.Index", "ASC")
+            // .orderBy("Behaviour.Index", "ASC")
       console.log(qry.getSql())
       let find = await qry.execute()
         console.log(find)
