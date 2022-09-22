@@ -6,6 +6,7 @@ import { Behaviour } from "../entity/behaviour"
 
 import { ObjectOperations } from "./object"
 import { FlowBehaviour } from '../FastAccessStateTracker/FlowLibrary/FlowBehaviour';
+import { QueryDeepPartialEntity } from 'typeorm/query-builder/QueryPartialEntity'
 
 
 export class BehaviourOperations 
@@ -16,7 +17,7 @@ export class BehaviourOperations
      * @param BehaviourInfo new Behaviour info
      * @param projectId project for association
      */
-    public static async CreateBehaviour(BehaviourInfo: Behaviour[])
+  public static async CreateBehaviour(BehaviourInfo: QueryDeepPartialEntity<Behaviour>[])
     {
         // I hate ORMs
         return await getConnection(process.env.NODE_ENV)
