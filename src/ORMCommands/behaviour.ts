@@ -16,7 +16,7 @@ export class BehaviourOperations
      * @param BehaviourInfo new Behaviour info
      * @param projectId project for association
      */
-    public static async CreateBehaviour(BehaviourInfo: any)
+    public static async CreateBehaviour(BehaviourInfo: Behaviour[])
     {
         // I hate ORMs
         return await getConnection(process.env.NODE_ENV)
