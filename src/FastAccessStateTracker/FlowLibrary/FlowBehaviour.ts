@@ -1,9 +1,8 @@
 import { FlowObject } from "./FlowObject";
 import { FlowProject } from "./FlowProject";
 import { Action } from "./Action";
-import { BaseEntity } from "typeorm"
 
-export class FlowBehaviour extends BaseEntity
+export class FlowBehaviour
 {
     public TypeOfTrigger: string;
     public Id: string;
@@ -15,7 +14,6 @@ export class FlowBehaviour extends BaseEntity
 
     constructor(Behaviour: any)
     {
-      super()
         console.log(Behaviour)
         this.TypeOfTrigger = Behaviour.TypeOfTrigger;
         this.Id = Behaviour.Id;

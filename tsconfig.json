@@ -1,5 +1,8 @@
 {
     "compilerOptions": {
+        "lib": ["es5", "es6", "es7",
+        "es2015", "es2016", "es2017", "ES2018",
+        "esnext"],
         "target": "ES6",
         "module": "commonjs",
         "moduleResolution": "node",
@@ -7,8 +10,11 @@
         "removeComments": true,
         "preserveConstEnums": true,
         "noEmitOnError": true,
-        "sourceMap": true,
         "outDir": "./dist",
+        "declaration": true,
+        "declarationMap": true,
+        "inlineSourceMap": true,
+        "inlineSources": true,
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true
     },
