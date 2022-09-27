@@ -55,7 +55,7 @@ model project {
 model user {
   Username String    @unique @id 
   Password String
-  project  project[]
+  Project  Project[]
 }
 
 model vs_graph {

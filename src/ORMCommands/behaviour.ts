@@ -6,6 +6,7 @@ import { Behaviour } from "../entity/behaviour"
 
 import { ObjectOperations } from "./object"
 import { FlowBehaviour } from '../FastAccessStateTracker/FlowLibrary/FlowBehaviour';
+import { QueryDeepPartialEntity } from 'typeorm/query-builder/QueryPartialEntity'
 
 
 export class BehaviourOperations 
@@ -16,7 +17,7 @@ export class BehaviourOperations
      * @param BehaviourInfo new Behaviour info
      * @param projectId project for association
      */
-    public static async CreateBehaviour(BehaviourInfo: any)
+  public static async CreateBehaviour(BehaviourInfo: any[])
     {
         // I hate ORMs
         return await getConnection(process.env.NODE_ENV)
@@ -34,18 +35,18 @@ export class BehaviourOperations
             .delete()
             .from(Behaviour)
             .where("Id IN (:...id)", {id : BehaviourId})
-        console.log(query.getQueryAndParameters()) 
+        // console.log(query.getQueryAndParameters()) 
             await query.execute()
     }
 
     public static async getBehaviours(projectId: string): Promise<Array<Behaviour>>{
-        console.log("PROJECTID")
-        console.log(projectId)
+        // console.log("PROJECTID")
+        // console.log(projectId)
         let query =  getConnection(process.env.NODE_ENV).createQueryBuilder()
             .select("Behaviour")
             .from(Behaviour, "Behaviour")
             .where("Behaviour.ProjectId = :ProjectId", {ProjectId: projectId})
-        console.log(query.getSql())
+        // console.log(query.getSql())
         return await    query.getMany()
     }
 

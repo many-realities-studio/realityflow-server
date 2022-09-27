@@ -17,7 +17,7 @@ beforeAll( async () => {
     await createConnection({
         "name": "test",
         "type": "sqlite",
-        "database": "../database/test.db", 
+        "database": ":memory:", 
         "synchronize": true,
         "logging": false,
         "dropSchema": true,
@@ -87,7 +87,8 @@ describe("User", () => {
         let returnedUser = await conn.manager.save(newUser)
 
         // act
-        UserOperations.deleteUser(newUser.Username)
+        await UserOperations.deleteUser(newUser.Username)
+      
         let check = await getConnection(process.env.NODE_ENV).createQueryBuilder().
             select("user").
             from(User, "user").
@@ -161,7 +162,7 @@ describe("Project", () =>{
         let returnedProject = await conn.manager.save(deletedProject)
 
         let check = await ProjectOperations.findProject(deletedProject.Id)
-        console.log(check)
+        // console.log(check)
         expect(check).toBeTruthy()
 
         // act

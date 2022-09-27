@@ -21,7 +21,6 @@ export class UserOperations {
 
         newUser.Username = username,
         newUser.Password = password,
-        console.log(process.env.NODE_ENV)
         await getConnection(process.env.NODE_ENV).manager.save(newUser);
     }
 
@@ -46,14 +45,12 @@ export class UserOperations {
      * @param Username 
      */
     public static async deleteUser(Username: string){
-        console.log("attempting to delete user " + Username)
-
-        await getConnection(process.env.NODE_ENV)
-            .createQueryBuilder()
-            .delete()
-            .from(User)
-            .where("Username = :username", { username: Username })
-            .execute();
+      console.log("attempting to delete user " + Username)
+      // let user = await User.findOne({Username:Username})
+      // await User.remove(user)
+      let repo = await getConnection(process.env.NODE_ENV).getRepository(User)
+      let user = await repo.findOne({Username})
+      await repo.remove( user )
     }
 
     /**
