@@ -22,8 +22,8 @@ import { DBObject } from './object';
     @Column()
     public Id: string;
 
-    // @Column()
-    // public ChainOwner: string;
+    @Column()
+    public ChainOwner: string;
 
     @Column()
     public TypeOfTrigger: string;
