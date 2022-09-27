@@ -19,7 +19,7 @@
         "emitDecoratorMetadata": true
     },
     "exclude": [
-    "/dist/*",
+      "./dist/**/*",
         "/*.spec.ts",
         "/node_modules",
         "**web-client"
