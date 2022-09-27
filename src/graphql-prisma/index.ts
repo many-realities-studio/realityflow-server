@@ -18,6 +18,7 @@ const resolvers = {
     },
 
     user: async (parent, args, context) => {
+      console.log("Querying user...")
       let output = await context.prisma.user.findMany({ include: { project: { include: { user: true, db_object: true } } } })
       console.log(output)
       return output
