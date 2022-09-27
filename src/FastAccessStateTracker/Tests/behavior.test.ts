@@ -129,17 +129,11 @@ describe("entity", () => {
       .from(Behaviour, "Behaviour")
       .where("ChainOwner = :owner", { owner: "Trigger" })
     // .orderBy("Behaviour.Index", "ASC")
-    console.log(qry.getSql())
+    // console.log(qry.getSql())
     let find = await qry.execute()
-    console.log(find)
+    // console.log(find)
     expect(find).toBeTruthy()
-    console.log(find)
-  })
-
-  it("can be referenced by its owning object", async () => {
-    let check = await BehaviourOperations.getBehaviours("Trigger")
-    expect(check).toBeTruthy()
-    expect(check[0].Id).toEqual("TestBehaviourId2")
+    // console.log(find)
   })
 
   it("can be deleted", async () => {

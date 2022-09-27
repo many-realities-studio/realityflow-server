@@ -21,7 +21,6 @@ export class UserOperations {
 
         newUser.Username = username,
         newUser.Password = password,
-        console.log(process.env.NODE_ENV)
         await getConnection(process.env.NODE_ENV).manager.save(newUser);
     }
 

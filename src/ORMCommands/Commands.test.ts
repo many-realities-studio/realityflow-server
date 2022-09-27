@@ -162,7 +162,7 @@ describe("Project", () =>{
         let returnedProject = await conn.manager.save(deletedProject)
 
         let check = await ProjectOperations.findProject(deletedProject.Id)
-        console.log(check)
+        // console.log(check)
         expect(check).toBeTruthy()
 
         // act

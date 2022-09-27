@@ -35,18 +35,18 @@ export class BehaviourOperations
             .delete()
             .from(Behaviour)
             .where("Id IN (:...id)", {id : BehaviourId})
-        console.log(query.getQueryAndParameters()) 
+        // console.log(query.getQueryAndParameters()) 
             await query.execute()
     }
 
     public static async getBehaviours(projectId: string): Promise<Array<Behaviour>>{
-        console.log("PROJECTID")
-        console.log(projectId)
+        // console.log("PROJECTID")
+        // console.log(projectId)
         let query =  getConnection(process.env.NODE_ENV).createQueryBuilder()
             .select("Behaviour")
             .from(Behaviour, "Behaviour")
             .where("Behaviour.ProjectId = :ProjectId", {ProjectId: projectId})
-        console.log(query.getSql())
+        // console.log(query.getSql())
         return await    query.getMany()
     }
 
