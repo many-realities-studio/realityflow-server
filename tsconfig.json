@@ -12,9 +12,14 @@
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true
     },
+    "include": [
+        "src"
+    ],
     "exclude": [
-        "/*.spec.ts",
-        "/node_modules",
+        "dist",
+        "**/*.db",
+        "*.spec.ts",
+        "node_modules",
         "**web-client"
     ]
 }

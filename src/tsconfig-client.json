@@ -10,6 +10,7 @@
         "outDir": "../static/js/"
     },
     "exclude": [
+        "/database/prod.db",
         "**/*.spec.ts",
         "**/node_modules",
         "**web-client"

@@ -1,0 +1,55 @@
+
+> reality-flow@0.0.1 debug
+> tsc-watch --onSuccess "node --inspect=0.0.0.0:9230 ./dist/server.js" --onFailure "echo WHOOPS! Server compilation failed"
+
+c7:21:43 PM - Starting compilation in watch mode...
+
+
+7:21:50 PM -[32m Found 0 errors. Watching for file changes.[39m
+Server starting...
+/mnt/d/pot/School/Senior Design/realityflow/realityflow-server/dist
+Server is running on http://localhost:4000/
+SYSTEM READY on port 8999
+query: BEGIN TRANSACTION
+query: SELECT * FROM "sqlite_master" WHERE "type" = 'table' AND "name" IN ('user', 'db_object', 'vs_graph', 'project', 'behaviour')
+query: SELECT * FROM "sqlite_master" WHERE "type" = 'index' AND "tbl_name" IN ('user', 'behaviour', 'db_object', 'vs_graph', 'project')
+query: PRAGMA table_info("user")
+query: PRAGMA index_list("user")
+query: PRAGMA foreign_key_list("user")
+query: PRAGMA table_info("behaviour")
+query: PRAGMA index_list("behaviour")
+query: PRAGMA foreign_key_list("behaviour")
+query: PRAGMA table_info("db_object")
+query: PRAGMA index_list("db_object")
+query: PRAGMA foreign_key_list("db_object")
+query: PRAGMA table_info("vs_graph")
+query: PRAGMA index_list("vs_graph")
+query: PRAGMA foreign_key_list("vs_graph")
+query: PRAGMA table_info("project")
+query: PRAGMA index_list("project")
+query: PRAGMA foreign_key_list("project")
+query: SELECT * FROM "sqlite_master" WHERE "type" = 'table' AND "name" = 'typeorm_metadata'
+query: COMMIT
+Is connected true
+prod
+query: SELECT "User"."Username" AS "User_Username", "User"."Password" AS "User_Password" FROM "user" "User" WHERE "User"."Username" IN (?) -- PARAMETERS: ["user"]
+query: BEGIN TRANSACTION
+query: UPDATE "user" SET "Password" = ? WHERE "Username" IN (?) -- PARAMETERS: ["$2b$10$Ejgx04T5K77G3msLvWSeE.GFs3MlljvYxgx9.ksp/icYEyJhB3Nvi","user"]
+query: COMMIT
+query: SELECT "User"."Username" AS "User_Username", "User"."Password" AS "User_Password" FROM "user" "User" WHERE "User"."Username" = ? -- PARAMETERS: ["user"]
+query: SELECT "Project"."Id" AS "Project_Id", "Project"."Description" AS "Project_Description", "Project"."DateModified" AS "Project_DateModified", "Project"."ProjectName" AS "Project_ProjectName", "Project"."ownerUsername" AS "Project_ownerUsername" FROM "project" "Project" WHERE "Project"."Id" IN (?) -- PARAMETERS: ["noRoom"]
+query: BEGIN TRANSACTION
+query: UPDATE "project" SET "DateModified" = ? WHERE "Id" IN (?) -- PARAMETERS: ["2022-09-27T23:21:52.663Z","noRoom"]
+query: COMMIT
+query: SELECT "project"."Id" AS "project_Id", "project"."Description" AS "project_Description", "project"."DateModified" AS "project_DateModified", "project"."ProjectName" AS "project_ProjectName", "project"."ownerUsername" AS "project_ownerUsername" FROM "project" "project" WHERE Id = ? -- PARAMETERS: ["noRoom"]
+prod
+query: SELECT "object"."_id" AS "object__id", "object"."Id" AS "object_Id", "object"."Name" AS "object_Name", "object"."X" AS "object_X", "object"."Y" AS "object_Y", "object"."Z" AS "object_Z", "object"."Q_x" AS "object_Q_x", "object"."Q_y" AS "object_Q_y", "object"."Q_z" AS "object_Q_z", "object"."Q_w" AS "object_Q_w", "object"."S_x" AS "object_S_x", "object"."S_y" AS "object_S_y", "object"."S_z" AS "object_S_z", "object"."R" AS "object_R", "object"."G" AS "object_G", "object"."B" AS "object_B", "object"."A" AS "object_A", "object"."Prefab" AS "object_Prefab", "object"."projectId" AS "object_projectId" FROM "db_object" "object" WHERE "object"."projectId" = ? -- PARAMETERS: ["noRoom"]
+query: SELECT "vsgraph"."_id" AS "vsgraph__id", "vsgraph"."Id" AS "vsgraph_Id", "vsgraph"."Name" AS "vsgraph_Name", "vsgraph"."serializedNodes" AS "vsgraph_serializedNodes", "vsgraph"."edges" AS "vsgraph_edges", "vsgraph"."groups" AS "vsgraph_groups", "vsgraph"."stackNodes" AS "vsgraph_stackNodes", "vsgraph"."pinnedElements" AS "vsgraph_pinnedElements", "vsgraph"."exposedParameters" AS "vsgraph_exposedParameters", "vsgraph"."stickyNotes" AS "vsgraph_stickyNotes", "vsgraph"."position" AS "vsgraph_position", "vsgraph"."scale" AS "vsgraph_scale", "vsgraph"."references" AS "vsgraph_references", "vsgraph"."paramIdToObjId" AS "vsgraph_paramIdToObjId", "vsgraph"."projectId" AS "vsgraph_projectId" FROM "vs_graph" "vsgraph" WHERE "vsgraph"."projectId" = ? -- PARAMETERS: ["noRoom"]
+PROJECTID
+noRoom
+SELECT "Behaviour"."_id" AS "Behaviour__id", "Behaviour"."Id" AS "Behaviour_Id", "Behaviour"."TypeOfTrigger" AS "Behaviour_TypeOfTrigger", "Behaviour"."TriggerObjectId" AS "Behaviour_TriggerObjectId", "Behaviour"."TargetObjectId" AS "Behaviour_TargetObjectId", "Behaviour"."ProjectId" AS "Behaviour_ProjectId", "Behaviour"."NextBehaviour" AS "Behaviour_NextBehaviour", "Behaviour"."Action" AS "Behaviour_Action" FROM "behaviour" "Behaviour" WHERE "Behaviour"."ProjectId" = ?
+query: SELECT "Behaviour"."_id" AS "Behaviour__id", "Behaviour"."Id" AS "Behaviour_Id", "Behaviour"."TypeOfTrigger" AS "Behaviour_TypeOfTrigger", "Behaviour"."TriggerObjectId" AS "Behaviour_TriggerObjectId", "Behaviour"."TargetObjectId" AS "Behaviour_TargetObjectId", "Behaviour"."ProjectId" AS "Behaviour_ProjectId", "Behaviour"."NextBehaviour" AS "Behaviour_NextBehaviour", "Behaviour"."Action" AS "Behaviour_Action" FROM "behaviour" "Behaviour" WHERE "Behaviour"."ProjectId" = ? -- PARAMETERS: ["noRoom"]
+c7:21:54 PM - File change detected. Starting incremental compilation...
+
+c7:21:55 PM - File change detected. Starting incremental compilation...
+
